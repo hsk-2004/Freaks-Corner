@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freaks Corner - Login Page</title>
+    
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+ 
+    <style>
+        body {
+            background-image: url('img/image.jpg'); 
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5); 
+        }
+
+        .logo-section {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 0.8em;
+            text-align: left;
+        }
+
+        .logo-section h1 {
+            font-family: 'Anton', sans-serif;
+            font-weight: bold;
+            font-size: 2.9em;
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            color: #FFFFFF;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+        }
+
+        .social-icons {
+            position: absolute;
+            left: 20px;
+            top: 100px;
+            display: none;
+        }
+
+        nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 0.7em;
+            padding: 10px 20px;
+            border: 2px solid black;
+            background-color: white;
+            transition: all 0.3s;
+            display: block;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: black;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .login-container {
+            background-color: white; 
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            color: black;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .login-container button {
+            background-color: green;
+            color: black;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .login-container button:hover {
+            background-color: darkgreen;
+        }
+
+        .signup-link {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: black;
+        }
+
+        .signup-link a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .logo-section h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-section">
+            <a href="home.html" style="text-decoration: none;">
+                <h1>FREAKS CORNER!</h1>
+            </a>
+        </div>
+        
+        <div class="social-icons">
+            <a href="#" style="color: #FF0000; font-size: 1.5em;"><i class="fab fa-youtube"></i></a> 
+            <a href="#" style="color: #E1306C; font-size: 1.5em;"><i class="fab fa-instagram"></i></a> 
+            <a href="#" style="color: #1DA1F2; font-size: 1.5em;"><i class="fab fa-twitter"></i></a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="men.html">MEN</a></li>
+                <li><a href="women.html">WOMEN</a></li>
+                <li><a href="premium.html">PREMIUM</a></li>
+                <li><a href="accessories.html">ACCESSORIES</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <h2>Login/Signup</h2>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="button" id="loginButton">Sign In</button>
+        
+        <div class="signup-link">
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (email && password) {
+        document.querySelector('.login-container').innerHTML = `
+            <h2>You are now logged in!</h2>
+            <button onclick="window.location.href='mainprofile.html'" style="margin-top: 20px; padding: 10px; font-size: 1.1em; border-radius: 5px; cursor: pointer;">Go to Profile</button>
+        `;
+    } else {
+        alert('Please enter your email and password');
+    }
+});
+
+    </script>
+
+</body>
+</html>

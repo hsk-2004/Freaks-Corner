@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - Freaks Corner</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            z-index: 10;
+            background-color: #ffffff; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        }
+
+        .logo-section {
+            font-size: 0.8em;
+            text-align: left;
+        }
+
+        .logo-section h1 {
+            font-family: 'Anton', sans-serif;
+            font-weight: bold;
+            font-size: 2.1em;
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            color: #000; 
+            text-shadow: none; 
+        }
+
+        nav {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 0.7em;
+            padding: 10px 20px;
+            border: 2px solid black;
+            background-color: white;
+            transition: all 0.3s;
+            display: block;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: black; 
+            color: white; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .icons {
+            position: absolute;
+            right: 55px;
+            top: 20px;
+        }
+
+        .icons a {
+            color: white; 
+            font-weight: bold;
+            margin-left: 20px;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .product-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 100px auto; 
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-images {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .product-images img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px; 
+        }
+
+        .product-details {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .product-details h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: bold; 
+        }
+
+        .product-details .price {
+            font-size: 1.5em;
+            color: #333;
+            margin: 10px 0;
+            font-weight: bold; 
+        }
+
+        .product-details p {
+            margin: 10px 0;
+            font-size: 1.1em; 
+            color: #666;
+        }
+
+        .product-details h3 {
+            margin-top: 20px;
+            font-size: 1.5em; 
+            font-weight: bold; 
+        }
+
+        .product-details ul {
+            margin-left: 20px;
+        }
+
+        .product-details button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .product-details button:hover {
+            background-color:  darkgreen;
+        }
+
+        .related-items {
+            margin-left: 20px; 
+            flex: 0 0 250px;
+        }
+
+        .related-items h3 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: center;
+            font-weight: bold; 
+        }
+
+        .related-items-container {
+            display: flex;
+            flex-direction: column; 
+            gap: 10px; 
+        }
+
+        .related-item {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .related-item h4 {
+            margin: 10px 0;
+            font-size: 1.2em;
+            font-weight: bold; 
+        }
+
+        .related-item .price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            background-color: #000;
+            padding: 40px 20px;
+            color: white;
+            text-align: left;
+            margin-top: auto;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer form {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 400px;
+        }
+
+        footer form input {
+            flex: 1;
+            padding: 10px;
+            border: none;   
+            border-radius: 5px 0 0 5px;
+        }
+
+        footer form button {
+            padding: 10px;
+            border: none;
+            background-color: #fff;
+            color: black;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+            }
+
+            .product-images, .product-details {
+                padding: 10px;
+            }
+
+            .related-items {
+                flex: 1 1 100%; 
+                margin-left: 0;
+            }
+
+            nav ul li a {
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .related-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-section">
+            <a href="home.html" style="text-decoration: none;">
+                <h1>FREAKS CORNER!</h1>
+            </a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="men.html">MEN</a></li>
+                <li><a href="women.html">WOMEN</a></li>
+                <li><a href="premium.html">PREMIUM</a></li>
+                <li><a href="accessories.html">ACCESSORIES</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+        
+        <div class="icons">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="profile.html"><i class="fas fa-user"></i></a>
+        </div>
+        
+    </header>
+
+    <main>
+        <div class="product-container">
+            <div class="product-images">
+                <img src="img/tshirt1.jpg" alt="Men's Classic Jacket">
+                <img src="img/tshirt2.jpg" alt="Men's Classic Jacket (Alternate View)"> 
+            </div>
+            <div class="product-details">
+                <h2>Men's Graphic T-Shirt</h2>
+                <div class="price">Rs. 299.00</div>
+                <p>This trendy graphic t-shirt is perfect for casual wear and offers a cool, relaxed vibe. Made from soft, breathable fabric, it's designed for comfort and style.</p>
+            
+                <h3>Product Specifications:</h3>
+                <ul>
+                    <li>Material: 100% Cotton</li>
+                    <li>Available Sizes: S, M, L, XL, XXL</li>
+                    <li>Available Colors: Black, White, Navy, Olive Green</li>
+                    <li>Care Instructions: Machine wash warm, tumble dry low.</li>
+                    <li>Country of Origin: India</li>
+                    <li>Weight: 200 grams</li>
+                </ul>
+            
+                <h3>Features:</h3>
+                <ul>
+                    <li>Eye-catching graphic print on the front</li>
+                    <li>Soft and breathable cotton fabric</li>
+                    <li>Relaxed fit for maximum comfort</li>
+                    <li>Double-stitched hems for durability</li>
+                </ul>
+            
+            
+
+                <button onclick="addToCart('Graphic tshirt', 299.00, 'img/tshirt1.jpg')">Add to Cart</button>
+            </div>
+            <div class="related-items">
+                <h3>Related Items</h3>
+                <div class="related-items-container">
+                    <div class="related-item">
+                        <img src="img/ss1.jpg" alt="Men's Hoodie">
+                        <h4>Men's Hoodie</h4>
+                        <div class="price">Rs. 399.00</div>
+                        <button onclick="addToCart('Men\'s Hoodie', 399.00, 'img/hoodie1.jpg')">Add to Cart</button>
+                    </div>
+                    <div class="related-item">
+                        <img src="img/tshirt1.jpg" alt="Men's T-Shirt">
+                        <h4>Men's T-Shirt</h4>
+                        <div class="price">Rs. 299.00</div>
+                        <button onclick="addToCart('Men\'s T-Shirt', 299.00, 'img/tshirt1.jpg')">Add to Cart</button>
+                    </div>
+                    <div class="related-item">
+                        <img src="img/pant1.jpg" alt="Men's Cargo Pants">
+                        <h4>Men's Cargo Pants</h4>
+                        <div class="price">Rs. 499.00</div>
+                        <button onclick="addToCart('Men\'s Cargo Pants', 499.00, 'img/pants1.jpg')">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <h3>Freaks Corner</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Subscribe to our Newsletter</h3>
+            <form action="#">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </footer>
+
+    <script>
+        function addToCart(name, price, image) {
+            const cartItem = { name, price, image };
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems.push(cartItem);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            alert(`${name} has been added to your cart!`);
+        }
+    </script>
+
+</body>
+</html>
