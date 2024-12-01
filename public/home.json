@@ -1,0 +1,32 @@
+{
+    "products": [
+        {
+            "section": "men",
+            "image": "img/tshirt1.jpg",
+            "title": "MEN",
+            "description": "Explore the latest collection for men.",
+            "link": "men.html"
+        },
+        {
+            "section": "women",
+            "image": "img/highwaist1.jpg",
+            "title": "WOMEN",
+            "description": "Discover the trending styles for women.",
+            "link": "women.html"
+        },
+        {
+            "section": "premium",
+            "image": "img/premiumleather1.jpg",
+            "title": "PREMIUM",
+            "description": "Exclusive premium collection for a luxurious style.",
+            "link": "premium.html"
+        },
+        {
+            "section": "accessories",
+            "image": "img/necklace1.jpg",
+            "title": "ACCESSORIES",
+            "description": "Top-notch accessories to complement your style.",
+            "link": "accessories.html"
+        }
+    ]
+}
