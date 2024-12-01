@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freaks Corner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  
+
+    <main>
+        <div class="hero">
+            <a href="men.html">
+                <button class="shop-now">SHOP NOW</button>
+            </a>
+        </div>
+
+        <div class="product-section">
+            <div class="men-section"></div>
+            <div class="divider"></div>
+            <div class="women-section"></div>
+        </div>
+
+        <div class="product-section">
+            <div class="premium-section"></div>
+            <div class="divider"></div>
+            <div class="accessories-section"></div>
+        </div>
+
+    </main>
+
+ 
+
+    <script>
+        // Script to dynamically load product data from home.json
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("home.json")
+                .then(response => response.json())
+                .then(data => {
+                    data.products.forEach(product => {
+                        const section = document.querySelector(`.${product.section}-section`);
+                        
+                        if (section) {
+                            section.innerHTML = `
+                                <img src="${product.image}" alt="${product.title} Collection" style="max-width: 100%; height: auto;">
+                                <h2>${product.title}</h2>
+                                <p>${product.description}</p>
+                                <a href="${product.link}" class="explore-btn">Explore ${product.title}</a>
+                            `;
+                        }
+                    });
+                })
+                .catch(error => console.error("Error loading JSON data:", error));
+        });
+    </script>
+
+</body>
+</html>
